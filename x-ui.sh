@@ -157,7 +157,7 @@ uninstall() {
     echo -e "\nUninstalled Successfully."
     echo ""
     echo -e "If you need to install this panel again, you can use below command:"
-    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/shahin-io/x-ui/master/install.sh)${plain}"
+    echo -e "${green}bash <(curl -Ls https://raw.githubusercontent.com/shahinDOT/x-ui/master/install.sh)${plain}"
     echo ""
     # Trap the SIGTERM signal
     trap delete_script SIGTERM
@@ -308,7 +308,7 @@ show_log() {
 }
 
 update_shell() {
-    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/shahin-io/x-ui/raw/main/x-ui.sh
+    wget -O /usr/bin/x-ui -N --no-check-certificate https://github.com/shahinDOT/x-ui/raw/main/x-ui.sh
     if [[ $? != 0 ]]; then
         echo ""
         LOGE "Failed to download script，Please check whether the machine can connect Github"
