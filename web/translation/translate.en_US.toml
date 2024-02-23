@@ -52,12 +52,12 @@
 "remained" = "Remaining"
 "secAlertTitle" = "Security Alert"
 "secAlertSsl" = "This connection is not secure. Please avoid entering sensitive information until TLS is activated for data protection."
-"secAlertConf" = "Certain configurations have been identified as susceptible to attacks, prompting immediate action to reinforce security protocols and safeguard against potential security breaches."
-"secAlertSSL" = "Panel connection is not Secure. Deploy TLS for data Protection" 
-"secAlertPanelPort" = "Panel Listen Port"
-"secAlertPanelURI" =  "Panel URI Path"
-"secAlertSubURI" = "Subscription URI Path"
-"secAlertSubJsonURI" = "Subscription JSON URI Path"
+"secAlertConf" = "Certain settings are vulnerable to attacks, requiring immediate reinforcement of security protocols to prevent potential breaches."
+"secAlertSSL" = "Panel TLS is not deployed."
+"secAlertPanelPort" = "Panel listen port."
+"secAlertPanelURI" =  "Panel URI path."
+"secAlertSubURI" = "Subscription URI path." 
+"secAlertSubJsonURI" = "Subscription JSON URI path."
 "security" = "Security"
 
 [menu]
