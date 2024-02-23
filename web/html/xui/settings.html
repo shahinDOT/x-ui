@@ -52,7 +52,9 @@
                     >
                     <template slot="description">
                     {{ i18n "secAlertConf" }}
-                    <li v-for="a in confAlerts">- [[ a ]]</li>
+                    <ul>
+                    <li v-for="a in confAlerts">[[ a ]]</li>
+                    </ul>
                     </template>
                   </a-alert>  
                 </transition>
