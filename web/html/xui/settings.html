@@ -47,13 +47,14 @@
                     
                     <a-alert type="error" v-if="confAlerts.length>0" style="margin-bottom: 10px"
                     message='{{ i18n "secAlertTitle" }}'
+                    description='{{ i18n "secAlertConf" }}'
                     color="red"
                     show-icon
+                    icon="error"
                     closable
                     >
                     <template slot="description">
-                        {{ i18n "secAlertConf" }}
-                        <br><li v-for="a in confAlerts">- [[ a ]]</li>
+                    <li v-for="a in confAlerts">- [[ a ]]</li>
                     </template>
                     </a-alert>
                     
