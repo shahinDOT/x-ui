@@ -44,13 +44,7 @@
         <a-layout-content>
             <a-spin :spinning="spinning" :delay="500" tip='{{ i18n "loading"}}'>
                 <transition name="list" appear>
-                    <a-alert type="error" v-if="showAlert" style="margin-bottom: 10px"
-                    message='{{ i18n "secAlertTitle" }}'
-                    color="red"
-                    description='{{ i18n "secAlertSsl" }}'
-                    show-icon closable
-                    >
-                    </a-alert>
+                    
                     <a-alert type="error" v-if="confAlerts.length>0" style="margin-bottom: 10px"
                     message='{{ i18n "secAlertTitle" }}'
                     color="red"
@@ -61,6 +55,7 @@
                         <li v-for="a in confAlerts">- [[ a ]]</li>
                     </template>
                     </a-alert>
+                    
                 </transition>
                 <a-space direction="vertical">
                     <a-card hoverable style="margin-bottom: .5rem;">
@@ -247,7 +242,6 @@
             saveBtnDisable: true,
             user: {},
             lang: getLang(),
-            showAlert: false,
             remarkModels: {i:'Inbound',e:'Email',o:'Other'},
             remarkSeparators: [' ','-','_','@',':','~','|',',','.','/'],
             remarkSample: '',
@@ -380,6 +374,7 @@
                 get: function() {
                     if (!this.allSetting) return [];
                     var alerts = []
+                    if (window.location.protocol !== "https:") alerts.push('{{ i18n "secAlertSsl" }}');
                     if (this.allSetting.port == 54321) alerts.push('{{ "secAlertPanelPort"}}');
                     panelPath = window.location.pathname.split('/').length<4
                     if (panelPath && this.allSetting.webBasePath == '/') alerts.push('{{ "secAlertPanelURI"}}');
@@ -394,9 +389,6 @@
             }
         },
         async mounted() {
-            if (window.location.protocol !== "https:") {
-                this.showAlert = true;
-            }
             await this.getAllSetting();
             while (true) {
                 await PromiseUtil.sleep(1000);
