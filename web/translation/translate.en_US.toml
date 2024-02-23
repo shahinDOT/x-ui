@@ -53,10 +53,10 @@
 "secAlertTitle" = "Security Alert"
 "secAlertSsl" = "This connection is not secure. Please avoid entering sensitive information until TLS is activated for data protection."
 "secAlertConf" = "Certain configurations have been identified as susceptible to attacks, prompting immediate action to reinforce security protocols and safeguard against potential security breaches."
-"secAlertPanelPort" = "Panel Listen port"
-"secAlertPanelURI" =  "Panel URI path"
-"secAlertSubURI" = "Subscription URI path"
-"secAlertSubJsonURI" = "Subscription JSON URI path"
+"secAlertPanelPort" = "Panel Listen Port"
+"secAlertPanelURI" =  "Panel URI Path"
+"secAlertSubURI" = "Subscription URI Path"
+"secAlertSubJsonURI" = "Subscription JSON URI Path"
 "security" = "Security"
 
 [menu]
