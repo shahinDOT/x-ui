@@ -53,6 +53,10 @@
 "secAlertTitle" = "安全警报"
 "secAlertSsl" = "此连接不安全；在激活 TLS 进行数据保护之前，请勿输入敏感信息"
 "secAlertConf" = "某些配置已被确定为容易受到攻击，促使立即采取行动以加强安全协议并防范潜在的安全漏洞。"
+"secAlertPanelPort" = "Panel Listen port"
+"secAlertPanelURI" =  "Panel URI path"
+"secAlertSubURI" = "Subscription URI path"
+"secAlertSubJsonURI" = "Subscription JSON URI path"
 "security" = "安全"
 
 [menu]
