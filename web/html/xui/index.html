@@ -119,6 +119,7 @@
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
+                        <a-card hoverable>
                         <strong>{{ i18n "pages.index.xrayStatus" }}:</strong>
                             <a-tag :color="status.xray.color" style="margin-right: 3px;"><strong>[[ status.xray.state ]]</strong></a-tag>
                             <a-popover v-if="status.xray.state === State.Error"
