@@ -97,7 +97,7 @@
                             </template>
                                 <a-tag color="blue" style="margin-right: 3px;">IPv4/v6</a-tag>
                               </a-tooltip>
-                            <a href="https://github.com/alireza0/x-ui/releases" target="_blank"><a-tag color="purple"><b>X-UI</b> v{{ .cur_ver }}</a-tag></a>
+                            <a href="https://github.com/alireza0/x-ui/releases" target="_blank"><a-tag color="purple"><b>X-UI:</b> {{ .cur_ver }}</a-tag></a>
                             </template>
                         </a-card>
                     </a-col>
@@ -108,20 +108,20 @@
                                  <template slot="title">
                                      {{ i18n "pages.index.xrayoperationHoursDesc" }}
                                  </template>
-                                <a-tag :color="status.xray.color" style="margin-right: 3px;"><b>Xray</b> [[ formatSecond(status.appStats.uptime) ]]</a-tag>
+                                <a-tag :color="status.xray.color" style="margin-right: 3px;"><b>Xray:</b> [[ formatSecond(status.appStats.uptime) ]]</a-tag>
                             </a-tooltip>      
                             <a-tooltip>
                                 <template slot="title">
                                     {{ i18n "pages.index.operationHoursDesc" }}
                                 </template>
-                                 <a-tag color="blue"><b>OS</b> [[ formatSecond(status.uptime) ]]</a-tag>
+                                 <a-tag color="blue"><b>OS:</b> [[ formatSecond(status.uptime) ]]</a-tag>
                             </a-tooltip>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                         <strong>{{ i18n "pages.index.xrayStatus" }}:</strong>
-                            <a-tag :color="status.xray.color" style="margin-right: 3px;"><strong>[[ status.xray.state ]]</strong></a-tag>
+                            <a-tag :color="status.xray.color" style="margin-right: 3px;">[[ status.xray.state ]]</a-tag>
                             <a-popover v-if="status.xray.state === State.Error"
                                 :overlay-class-name="themeSwitcher.currentTheme">
                                 <span slot="title" style="font-size: 12pt">An error occurred while running Xray
@@ -161,8 +161,8 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <strong>{{ i18n "usage" }}:</strong>
-                            <a-tag color="blue" style="margin-right: 3px;"><b>RAM</b> [[ sizeFormat(status.appStats.mem) ]]</a-tag>
-                            <a-tag color="blue"><b>Threads</b> [[ status.appStats.threads ]]</a-tag>
+                            <a-tag color="blue" style="margin-right: 3px;"><b>RAM:</b> [[ sizeFormat(status.appStats.mem) ]]</a-tag>
+                            <a-tag color="blue"><b>Threads:</b> [[ status.appStats.threads ]]</a-tag>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
