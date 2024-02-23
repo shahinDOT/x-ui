@@ -53,6 +53,10 @@
 "secAlertTitle" = "Cảnh báo an ninh-Tiếng Việt by Ohoang7"
 "secAlertSsl" = "Kết nối này không an toàn; Vui lòng không nhập thông tin nhạy cảm cho đến khi TLS được kích hoạt để bảo vệ dữ liệu của Bạn"
 "secAlertConf" = "Một số cấu hình nhất định đã được xác định là dễ bị tấn công, thúc đẩy hành động ngay lập tức để củng cố các giao thức bảo mật và bảo vệ chống lại các vi phạm bảo mật tiềm ẩn."
+"secAlertPanelPort" = "Panel Listen port"
+"secAlertPanelURI" =  "Panel URI path"
+"secAlertSubURI" = "Subscription URI path"
+"secAlertSubJsonURI" = "Subscription JSON URI path"
 "security" = "Bảo vệ"
 
 [menu]
