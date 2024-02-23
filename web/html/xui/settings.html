@@ -52,12 +52,11 @@
                     closable
                     >
                     <template #icon>
-                    <a-icon type="warning" style="color: white;" />
+                    <a-icon type="warning" style="color: red;" />
                     </template>
                     <template slot="description">
                     {{ i18n "secAlertConf" }}
-                    <br>
-                    <li v-for="a in confAlerts">- [[ a ]]</li>
+                    <br><li v-for="a in confAlerts">- [[ a ]]</li>
                     </template>
                     </a-alert>
                     
