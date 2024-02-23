@@ -48,15 +48,9 @@
                     message='{{ i18n "secAlertTitle" }}'
                     color="red"
                     show-icon
+                    icon="warning"
                     closable
                     >
-                    <template slot="description">
-                    {{ i18n "secAlertConf" }}
-                    <br>
-                    <ul>
-                    <li v-for="a in confAlerts">[[ a ]]</li>
-                    </ul>
-                    </template>
                   </a-alert>  
                 </transition>
                 <a-space direction="vertical">
