@@ -52,12 +52,12 @@
 "remained" = "Remaining"
 "secAlertTitle" = "Security Alert"
 "secAlertSsl" = "This connection is not secure. Please avoid entering sensitive information until TLS is activated for data protection."
-"secAlertConf" = "Certain settings are vulnerable to attacks, requiring immediate reinforcement of security protocols to prevent potential breaches."
-"secAlertSSL" = "Insecure: Panel lacks TLS"
-"secAlertPanelPort" = "Vulnerable: Panel listen port"
-"secAlertPanelURI" =  "Exposed: Panel URI path"
-"secAlertSubURI" = "Subscription URI path" 
-"secAlertSubJsonURI" = "Exposed: Subscription URI JSON URI path"
+"secAlertConf" = "Certain configurations are vulnerable to attacks, requiring immediate reinforcement of security protocols to prevent potential breaches."
+"secAlertSSL" = "Panel web service is insecure. Deploy an SSL/TLS Certificate on the panel."
+"secAlertPanelPort" = "Panel port is vulnerable. Configure a random or specific port in line with the services you use, such as Cloudflare."
+"secAlertPanelURI" =  "Panel URI path is exposed. Configure a random URI path."
+"secAlertSubURI" = "Subscription URI path is exposed. Configure a random URI path." 
+"secAlertSubJsonURI" = "Subscription JSON URI pathos exposed. Configure a random URI path."
 "security" = "Security"
 
 [menu]
