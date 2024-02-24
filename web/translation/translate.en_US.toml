@@ -57,7 +57,7 @@
 "secAlertPanelPort" = "Panel port is vulnerable. Configure a random or specific port in line with the services you use, such as Cloudflare."
 "secAlertPanelURI" =  "Panel URI path is exposed. Configure a random URI path."
 "secAlertSubURI" = "Subscription URI path is exposed. Configure a random URI path." 
-"secAlertSubJsonURI" = "Subscription JSON URI pathos exposed. Configure a random URI path."
+"secAlertSubJsonURI" = "Subscription JSON URI path is exposed. Configure a random URI path."
 "security" = "Security"
 
 [menu]
