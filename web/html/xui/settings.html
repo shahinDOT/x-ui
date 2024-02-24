@@ -51,8 +51,8 @@
                     closable
                     >
                     <template slot="description">
-                    <b>{{ i18n "secAlertConf" }}</b>
-                    <li v-for="a in confAlerts">- [[ a ]]</li>
+                    {{ i18n "secAlertConf" }}
+                    <ul><li v-for="a in confAlerts">[[ a ]]</li></ul>
                     </template>
                   </a-alert>  
                 </transition>
