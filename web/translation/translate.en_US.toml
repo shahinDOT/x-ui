@@ -53,11 +53,11 @@
 "secAlertTitle" = "Security Alert"
 "secAlertSsl" = "This connection is not secure. Please avoid entering sensitive information until TLS is activated for data protection."
 "secAlertConf" = "Certain settings are vulnerable to attacks. It is recommended to reinforce security protocols to prevent potential breaches."
-"secAlertSSL" = "Panel web service is insecure. Install SSL/TLS certificate."
-"secAlertPanelPort" = "Panel listen port is vulnerable. Configure a random or specific port."
-"secAlertPanelURI" = "Panel URI path is exposed. Configure a random URI path."
-"secAlertSubURI" = "Subscription URI path is exposed. Configure a random URI path."
-"secAlertSubJsonURI" = "Subscription JSON URI path is exposed. Configure a random URI path."
+"secAlertSSL" = "Panel web service is insecure. Set up SSL/TLS certificate."
+"secAlertPanelPort" = "Panel listen port is vulnerable. Set up a random or specific port."
+"secAlertPanelURI" = "Default panel URI path is insecure. Set up a complex URI path."
+"secAlertSubURI" = "Default subscription URI path is insecure. Set up a complex URI path."
+"secAlertSubJsonURI" = "Default subscription JSON path is insecure. Set up a complex URI path."
 "security" = "Security"
 
 [menu]
