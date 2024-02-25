@@ -55,9 +55,9 @@
 "secAlertConf" = "Certain settings are vulnerable to attacks. It is recommended to reinforce security protocols to prevent potential breaches."
 "secAlertSSL" = "Panel web service is insecure. Install SSL/TLS certificate."
 "secAlertPanelPort" = "Panel default port is vulnerable. Configure a random or specific port."
-"secAlertPanelURI" = "panel default URI path is insecure. Configure a complex URI path."
+"secAlertPanelURI" = "Panel default URI path is insecure. Configure a complex URI path."
 "secAlertSubURI" = "Subscription default URI path is insecure. Configure a complex URI path."
-"secAlertSubJsonURI" = "Subscription JSON default path is insecure. Configure a complex URI path."
+"secAlertSubJsonURI" = "Subscription JSON default URI path is insecure. Configure a complex URI path."
 "security" = "Security"
 
 [menu]
