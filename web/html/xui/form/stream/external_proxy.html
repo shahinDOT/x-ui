@@ -10,12 +10,12 @@
             <a-tooltip>
                 <template slot="title">
                     <b>Same:</b> Maintains inbound security settings<br><b>None:</b> Enforce None<br><b>TLS:</b> Enforce TLS
-                </tamplate>
                 <a-select v-model="row.forceTls" style="width:25%; margin: 0px" :dropdown-class-name="themeSwitcher.currentTheme">
                     <a-select-option value="same">{{ i18n "pages.inbounds.same" }}</a-select-option>
                     <a-select-option value="none">{{ i18n "none" }}</a-select-option>
                     <a-select-option value="tls">TLS</a-select-option>
                 </a-select>
+              </template>
             </a-tooltip>
         </template>
         <a-input style="width: 35%" v-model.trim="row.dest" placeholder='{{ i18n "host" }}'></a-input>
