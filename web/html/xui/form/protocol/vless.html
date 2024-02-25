@@ -20,41 +20,46 @@
         </table>
     </a-collapse-panel>
 </a-collapse>
-<template v-if="inbound.isTcp && !inbound.stream.isReality">
-    <a-form :form="form" @submit="handleSubmit">
+
+<!-- Fallback configuration -->
+<a-form v-if="inbound.isTcp && !inbound.stream.isReality" :form="form" @submit="handleSubmit">
     <a-form-item style="margin-bottom: 0;">
-        <a-switch v-model="enableFallbacks" @change="toggleFallbacks">Enable Fallbacks</a-switch>
-        <a-row v-if="enableFallbacks">
-            <a-button type="primary" size="small" @click="inbound.settings.addFallback()">
-                +
-            </a-button>
-        </a-row>
+        <a-switch v-model="fallbackEnabled">Enable Fallbacks</a-switch>
+    </a-form-item>
+    <a-form-item v-if="fallbackEnabled">
+        <a-button type="primary" size="small" @click="inbound.settings.addFallback()">
+            +
+        </a-button>
     </a-form-item>
 </a-form>
 
-    <!-- vless fallbacks -->
-    <a-form v-for="(fallback, index) in inbound.settings.fallbacks" :colon="false" :label-col="{ md: {span:6} }" :wrapper-col="{ md: {span:14} }">
-        <a-divider style="margin:0;">
-            Fallback [[ index + 1 ]]
-            <a-icon type="delete" @click="() => inbound.settings.delFallback(index)"
-                    style="color: rgb(255, 77, 79);cursor: pointer;"/>
-        </a-divider>
-        <a-form-item label='SNI'>
-            <a-input v-model="fallback.name"></a-input>
-        </a-form-item>            
-        <a-form-item label='ALPN'>
-            <a-input v-model="fallback.alpn"></a-input>
-        </a-form-item>
-        <a-form-item label='Path'>
-            <a-input v-model="fallback.path"></a-input>
-        </a-form-item>
-        <a-form-item label='Dest'>
-            <a-input v-model="fallback.dest"></a-input>
-        </a-form-item>
-        <a-form-item label='xVer'>
-            <a-input-number v-model="fallback.xver" :min="0" :max="2"></a-input-number>
-        </a-form-item>
-    </a-form>
-    <a-divider style="margin:0;"></a-divider>
+<!-- Fallbacks configuration -->
+<a-collapse v-if="fallbackEnabled">
+    <a-collapse-panel :header="'{{ i18n "pages.client.clientCount"}} : ' + inbound.settings.fallbacks.length">
+        <a-form v-for="(fallback, index) in inbound.settings.fallbacks" :colon="false" :label-col="{ md: {span:6} }" :wrapper-col="{ md: {span:14} }">
+            <a-divider style="margin:0;">
+                Fallback [[ index + 1 ]]
+                <a-icon type="delete" @click="() => inbound.settings.delFallback(index)"
+                        style="color: rgb(255, 77, 79);cursor: pointer;"/>
+            </a-divider>
+            <a-form-item label='SNI'>
+                <a-input v-model="fallback.name"></a-input>
+            </a-form-item>            
+            <a-form-item label='ALPN'>
+                <a-input v-model="fallback.alpn"></a-input>
+            </a-form-item>
+            <a-form-item label='Path'>
+                <a-input v-model="fallback.path"></a-input>
+            </a-form-item>
+            <a-form-item label='Dest'>
+                <a-input v-model="fallback.dest"></a-input>
+            </a-form-item>
+            <a-form-item label='xVer'>
+                <a-input-number v-model="fallback.xver" :min="0" :max="2"></a-input-number>
+            </a-form-item>
+        </a-form>
+        <a-divider style="margin:0;"></a-divider>
+    </a-collapse-panel>
+</a-collapse>
 </template>
 {{end}}
