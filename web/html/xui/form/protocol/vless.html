@@ -23,7 +23,7 @@
 <template v-if="inbound.isTcp && !inbound.stream.isReality">
     <a-form :form="form" @submit="handleSubmit">
     <a-form-item style="margin-bottom: 0;">
-        <a-switch v-model="enableFallbacks" @change="toggleFallbacks"></a-switch>
+        <a-switch v-model="enableFallbacks" @change="toggleFallbacks">Enable Fallbacks</a-switch>
         <a-row v-if="enableFallbacks">
             <a-button type="primary" size="small" @click="inbound.settings.addFallback()">
                 +
