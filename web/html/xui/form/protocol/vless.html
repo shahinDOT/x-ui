@@ -23,8 +23,9 @@
 <template v-if="inbound.isTcp && !inbound.stream.isReality">
     <a-form layout="inline">
         <a-form-item label="Fallbacks">
+            <a-switch v-model="fallback"></a-switch>
             <a-row>
-                <a-button type="primary" size="small"
+                <a-button v-if="fallback" type="primary" size="small"
                         @click="inbound.settings.addFallback()">
                     +
                 </a-button>
