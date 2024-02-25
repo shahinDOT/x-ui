@@ -24,7 +24,7 @@
     <a-form layout="inline">
         <a-form-item label="Fallbacks" style="margin-bottom: 0;">
         <a-switch v-model="enableFallbacks"></a-switch>
-        <a-row v-if="enableFallbacks">
+        <a-row>
             <a-button type="primary" size="small" @click="inbound.settings.addFallback()">
                 +
             </a-button>
