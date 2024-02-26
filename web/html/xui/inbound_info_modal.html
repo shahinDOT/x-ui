@@ -229,6 +229,7 @@
                 <th>{{ i18n "pages.inbounds.targetAddress" }}</th>
                 <th>{{ i18n "pages.inbounds.destinationPort" }}</th>
                 <th>{{ i18n "pages.inbounds.network" }}</th>
+                <th>Follow Redirect</th>
             </tr>
             <tr>
                 <td><a-tag color="blue">[[ inbound.settings.address ]]</a-tag></td>
@@ -254,7 +255,7 @@
                 <th>{{ i18n "username" }}</th>
                 <th>{{ i18n "password" }}</th>
             </tr><tr v-for="account,index in inbound.settings.accounts">
-                <td><a-tag color="blue">[[ index ]]</a-tag></td>
+                [[ index ]]
                 <td><a-tag color="blue">[[ account.user ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.pass ]]</a-tag></td>
             </tr>
@@ -266,7 +267,7 @@
                 <th>{{ i18n "username" }}</th>
                 <th>{{ i18n "password" }}</th>
             </tr><tr v-for="account,index in inbound.settings.accounts">
-                <td><a-tag color="blue">[[ index ]]</a-tag></td>
+                [[ index ]]
                 <td><a-tag color="blue">[[ account.user ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.pass ]]</a-tag></td>
             </tr>
