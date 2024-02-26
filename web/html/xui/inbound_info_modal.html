@@ -46,14 +46,14 @@
             </template>
             
             <template v-if="inbound.isQuic">
-                <tr><td>quic {{ i18n "encryption" }}</td><td><a-tag>[[ inbound.quicSecurity ]]</a-tag></td></tr>
-                <tr><td>quic {{ i18n "password" }}</td><td><a-tag>[[ inbound.quicKey ]]</a-tag></td></tr>
-                <tr><td>quic {{ i18n "camouflage" }}</td><td><a-tag>[[ inbound.quicType ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "encryption" }}</td><td><a-tag>[[ inbound.quicSecurity ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "password" }}</td><td><a-tag>[[ inbound.quicKey ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "camouflage" }}</td><td><a-tag>[[ inbound.quicType ]]</a-tag></td></tr>
             </template>
             
             <template v-if="inbound.isKcp">
-                <tr><td>kcp {{ i18n "encryption" }}</td><td><a-tag>[[ inbound.kcpType ]]</a-tag></td></tr>
-                <tr><td>kcp {{ i18n "password" }}</td><td><a-tag>[[ inbound.kcpSeed ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "encryption" }}</td><td><a-tag>[[ inbound.kcpType ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "password" }}</td><td><a-tag>[[ inbound.kcpSeed ]]</a-tag></td></tr>
             </template>
             
             <template v-if="inbound.isGrpc">
@@ -61,7 +61,7 @@
                     <a-tooltip :title="[[ inbound.serviceName ]]">
                         <a-tag class="info-large-tag">[[ inbound.serviceName ]]</a-tag>
                     </a-tooltip>
-                <tr><td>grpc multiMode</td><td><a-tag>[[ inbound.stream.grpc.multiMode ]]</a-tag></td></tr>
+                <tr><td>Multi Mode</td><td><a-tag>[[ inbound.stream.grpc.multiMode ]]</a-tag></td></tr>
             </template>
             </table>
         </template>
@@ -141,6 +141,7 @@
                     <a-tag v-if="infoModal.clientStats && infoModal.clientSettings.totalGB > 0" :color="statsColor(infoModal.clientStats)">
                         [[ sizeFormat(infoModal.clientSettings.totalGB - infoModal.clientStats.up - infoModal.clientStats.down) ]]
                     </a-tag>
+                    <a-tag v-else color="purple" class="infinite-tag">&infin;</a-tag>
                 </td>
                 <td>
                     <a-tag v-if="infoModal.clientSettings.totalGB > 0" :color="statsColor(infoModal.clientStats)">
@@ -153,9 +154,6 @@
                         <a-tag :color="usageColor(new Date().getTime(), app.expireDiff, infoModal.clientSettings.expiryTime)">
                             [[ DateUtil.formatMillis(infoModal.clientSettings.expiryTime) ]]
                         </a-tag>
-                    </template>
-                    <a-tag v-else-if="infoModal.clientSettings.expiryTime < 0" color="blue">[[ infoModal.clientSettings.expiryTime / -86400000 ]] {{ i18n "pages.client.days" }}</a-tag>
-                    <a-tag v-else color="purple" class="infinite-tag">&infin;</a-tag>
                 </td>
             </tr>
         </table>
