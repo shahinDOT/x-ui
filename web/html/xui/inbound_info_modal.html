@@ -10,13 +10,20 @@
     <a-row>
         <a-col :xs="24" :md="12">
             <table>
-                <tr><td>{{ i18n "protocol" }}:</td><td> <a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td></tr>
-                <tr><td>{{ i18n "pages.inbounds.address" }}:</td><td>
+                <tr>
+                    <td>{{ i18n "protocol" }}:</td><td> <a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td>
+                    </tr>
+                    <tr>
+                    <td>{{ i18n "pages.inbounds.address" }}:</td><td>
                     <a-tooltip :title="[[ dbInbound.address ]]">
                         <a-tag class="info-large-tag">[[ dbInbound.address ]]</a-tag>
                     </a-tooltip>
-                </td></tr>
-                <tr><td>{{ i18n "pages.inbounds.port" }}:</td><td><a-tag>[[ dbInbound.port ]]</a-tag></td></tr>
+                     </td>
+                    </tr>
+                   <tr>
+                    <td>{{ i18n "pages.inbounds.port" }}:</td><td><a-tag>[[ dbInbound.port ]]</a-tag>                  
+                    </td>
+                </tr>
             </table>
         </a-col>
         <a-col :xs="24" :md="12">
