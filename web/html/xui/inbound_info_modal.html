@@ -10,24 +10,24 @@
     <a-row>
         <a-col :xs="24" :md="12">
             <table>
-                <tr><td>{{ i18n "protocol" }}</td><td><a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td></tr>
-                <tr><td>{{ i18n "pages.inbounds.address" }}</td><td>
+                <tr><td>{{ i18n "protocol" }}:</td><td> <a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "pages.inbounds.address" }}:</td><td>
                     <a-tooltip :title="[[ dbInbound.address ]]">
                         <a-tag class="info-large-tag">[[ dbInbound.address ]]</a-tag>
                     </a-tooltip>
                 </td></tr>
-                <tr><td>{{ i18n "pages.inbounds.port" }}</td><td><a-tag>[[ dbInbound.port ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "pages.inbounds.port" }}:</td><td><a-tag>[[ dbInbound.port ]]</a-tag></td></tr>
             </table>
         </a-col>
         <a-col :xs="24" :md="12">
         <template v-if="dbInbound.isVMess || dbInbound.isVLess || dbInbound.isTrojan || dbInbound.isSS">
             <table>
                 <tr>
-                    <td>{{ i18n "transmission" }}</td><td><a-tag color="blue">[[ inbound.network ]]</a-tag></td>
+                    <td>{{ i18n "transmission" }}:</td><td><a-tag color="blue">[[ inbound.network ]]</a-tag></td>
                 </tr>
             <template v-if="inbound.isTcp || inbound.isWs || inbound.isH2">
                 <tr>
-                    <td>{{ i18n "host" }}</td>
+                    <td>{{ i18n "host" }}:</td>
                     <td v-if="inbound.host">
                         <a-tooltip :title="[[ inbound.host ]]">
                             <a-tag class="info-large-tag">[[ inbound.host ]]</a-tag>
@@ -36,7 +36,7 @@
                     <td v-else><a-tag color="orange">{{ i18n "none" }}</a-tag></td></tr>
                 </tr>
                 <tr>
-                    <td>{{ i18n "path" }}</td>
+                    <td>{{ i18n "path" }}:</td>
                     <td v-if="inbound.path">
                         <a-tooltip :title="[[ inbound.path ]]">
                             <a-tag class="info-large-tag">[[ inbound.path ]]</a-tag>
@@ -46,38 +46,38 @@
             </template>
             
             <template v-if="inbound.isQuic">
-                <tr><td>{{ i18n "encryption" }}</td><td><a-tag>[[ inbound.quicSecurity ]]</a-tag></td></tr>
-                <tr><td>{{ i18n "password" }}</td><td><a-tag>[[ inbound.quicKey ]]</a-tag></td></tr>
-                <tr><td>{{ i18n "camouflage" }}</td><td><a-tag>[[ inbound.quicType ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "encryption" }}:</td><td><a-tag>[[ inbound.quicSecurity ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "password" }}:</td><td><a-tag>[[ inbound.quicKey ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "camouflage" }}:</td><td><a-tag>[[ inbound.quicType ]]</a-tag></td></tr>
             </template>
             
             <template v-if="inbound.isKcp">
-                <tr><td>{{ i18n "encryption" }}</td><td><a-tag>[[ inbound.kcpType ]]</a-tag></td></tr>
-                <tr><td>{{ i18n "password" }}</td><td><a-tag>[[ inbound.kcpSeed ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "encryption" }}:</td><td><a-tag>[[ inbound.kcpType ]]</a-tag></td></tr>
+                <tr><td>{{ i18n "password" }}:</td><td><a-tag>[[ inbound.kcpSeed ]]</a-tag></td></tr>
             </template>
             
             <template v-if="inbound.isGrpc">
-                <tr><td>grpc serviceName</td><td>
+                <tr><td>Service Name:</td><td>
                     <a-tooltip :title="[[ inbound.serviceName ]]">
                         <a-tag class="info-large-tag">[[ inbound.serviceName ]]</a-tag>
                     </a-tooltip>
-                <tr><td>Multi Mode</td><td><a-tag>[[ inbound.stream.grpc.multiMode ]]</a-tag></td></tr>
+                <tr><td>Multi Mode:</td><td><a-tag>[[ inbound.stream.grpc.multiMode ]]</a-tag></td></tr>
             </template>
             </table>
         </template>
         </a-col>
         <template v-if="dbInbound.hasLink()">
-            {{ i18n "security" }}
+            {{ i18n "security" }}:
             <a-tag :color="inbound.stream.security == 'none' ? 'red' : 'green'">[[ inbound.stream.security ]]</a-tag>
             <br />
             <template v-if="inbound.stream.security != 'none'">
-            {{ i18n "domainName" }}
+            SNI:
             <a-tag :color="inbound.serverName ? 'green' : 'orange'">[[ inbound.serverName ? inbound.serverName : '' ]]</a-tag>
             </template>
         </template>
     <table v-if="dbInbound.isSS" style="margin-bottom: 10px; width: 100%;">
         <tr>
-            <td>{{ i18n "encryption" }}</td>
+            <td>{{ i18n "encryption" }}:</td>
             <td><a-tag color="blue">[[ inbound.settings.method ]]</a-tag></td>
         </tr><tr v-if="inbound.isSS2022">
             <td>{{ i18n "password" }}</td>
@@ -87,7 +87,7 @@
                 </a-tooltip>
             </td>
         </tr><tr>
-            <td>{{ i18n "pages.inbounds.network" }}</td>
+            <td>{{ i18n "pages.inbounds.network" }}:</td>
             <td><a-tag color="blue">[[ inbound.settings.network ]]</a-tag></td>
         </tr>
     </table>
@@ -95,19 +95,19 @@
         <a-divider>{{ i18n "pages.inbounds.client" }}</a-divider>
         <table style="margin-bottom: 10px;">
             <tr>
-                <td>{{ i18n "pages.inbounds.email" }}</td>
+                <td>{{ i18n "pages.inbounds.email" }}:</td>
                 <td><a-tag color="blue">[[ infoModal.clientSettings.email ]]</a-tag></td>
             </tr>
             <tr v-if="infoModal.clientSettings.id">
-                <td>ID</td>
+                <td>ID:</td>
                 <td><a-tag>[[ infoModal.clientSettings.id ]]</a-tag></td>
             </tr>
             <tr v-if="infoModal.inbound.canEnableTlsFlow()">
-                <td>Flow</td>
+                <td>Flow:</td>
                 <td><a-tag>[[ infoModal.clientSettings.flow ]]</a-tag></td>
             </tr>
             <tr v-if="infoModal.clientSettings.password">
-                <td>{{ i18n "password" }}</td>
+                <td>{{ i18n "password" }}:</td>
                 <td>
                     <a-tooltip :title="[[ infoModal.clientSettings.password  ]]">
                         <a-tag class="info-large-tag">[[ infoModal.clientSettings.password  ]]</a-tag>
@@ -115,7 +115,7 @@
                 </td>
             </tr>
             <tr>
-                <td>{{ i18n "status" }}</td>
+                <td>{{ i18n "status" }}:</td>
                 <td>
                     <a-tag v-if="isEnable" color="blue">{{ i18n "enabled" }}</a-tag>
                     <a-tag v-else>{{ i18n "disabled" }}</a-tag>
@@ -123,7 +123,7 @@
                 </td>
             </tr>
             <tr v-if="infoModal.clientStats">
-                <td>{{ i18n "usage" }}</td>
+                <td>{{ i18n "usage" }}:</td>
                 <td>
                     <a-tag color="blue">[[ sizeFormat(infoModal.clientStats.up + infoModal.clientStats.down) ]]</a-tag>
                     <a-tag>↑ [[ sizeFormat(infoModal.clientStats.up) ]] / [[ sizeFormat(infoModal.clientStats.down) ]] ↓</a-tag>
