@@ -154,6 +154,9 @@
                         <a-tag :color="usageColor(new Date().getTime(), app.expireDiff, infoModal.clientSettings.expiryTime)">
                             [[ DateUtil.formatMillis(infoModal.clientSettings.expiryTime) ]]
                         </a-tag>
+                        </template>
+                    <a-tag v-else-if="infoModal.clientSettings.expiryTime < 0" color="blue">[[ infoModal.clientSettings.expiryTime / -86400000 ]] {{ i18n "pages.client.days" }}</a-tag>
+                    <a-tag v-else color="purple" class="infinite-tag">&infin;</a-tag>
                 </td>
             </tr>
         </table>
