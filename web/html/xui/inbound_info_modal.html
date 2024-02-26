@@ -317,21 +317,21 @@
                 <td colspan="2">
                     <a-row>
                         <a-col :span="22" style="overflow-wrap: anywhere;">
-                            <td colspan="3"><a-divider>Config</a-divider></td>
-                            <div 
-                            v-html="infoModal.links[index].replaceAll(`\n`,`<br />`)"
-                            style="border-radius: 1rem; padding: 0.5rem;"
-                            class="client-table-odd-row"></div>
-                        </a-col>
+    <a-divider>Config</a-divider>
+    <div v-html="infoModal.links[index].replaceAll(`\n`,`<br />`)"
+        style="border-radius: 1rem; padding: 0.5rem;"
+        class="client-table-odd-row"></div>
+</a-col>
+
                         <a-col :span="2" style="text-align: right;">
-                            <a-tooltip title='{{ i18n "copy" }}'>
-                                <button class="ant-btn ant-btn-primary"
-                                    :id="'copy-url-link-'+index"
-                                    @click="copyToClipboard('copy-url-link-'+index, infoModal.links[index])">
-                                    <a-icon type="snippets"></a-icon>
-                                </button>
-                            </a-tooltip>
-                        </a-col>
+    <a-tooltip title='{{ i18n "copy" }}'>
+        <button class="ant-btn ant-btn-primary"
+            :id="'copy-url-link-'+index"
+            @click="copyToClipboard('copy-url-link-'+index, infoModal.links[index])">
+            <a-icon type="snippets"></a-icon>
+        </button>
+    </a-tooltip>
+</a-col>
                     </a-row>
                 </td>
             </tr>
