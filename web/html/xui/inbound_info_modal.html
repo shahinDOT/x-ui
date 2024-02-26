@@ -224,23 +224,24 @@
                 </a-col>
             </a-row>
         </template>
-        <table v-if="inbound.protocol == Protocols.DOKODEMO" style="margin-bottom: 10px; width: 100%;">
+        <table v-if="inbound.protocol == Protocols.DOKODEMO" style="margin-bottom: 10px; width: 100%; text-align: center;">
             <tr>
                 <th>{{ i18n "pages.inbounds.targetAddress" }}</th>
                 <th>{{ i18n "pages.inbounds.destinationPort" }}</th>
                 <th>{{ i18n "pages.inbounds.network" }}</th>
-                <th>FollowRedirect</th>
-            </tr><tr>
+                <th>Follow Redirect</th>
+            </tr>
+            <tr>
                 <td><a-tag color="blue">[[ inbound.settings.address ]]</a-tag></td>
                 <td><a-tag color="blue">[[ inbound.settings.port ]]</a-tag></td>
                 <td><a-tag color="blue">[[ inbound.settings.network ]]</a-tag></td>
                 <td><a-tag color="blue">[[ inbound.settings.followRedirect ]]</a-tag></td>
             </tr>
         </table>
-        <table v-if="dbInbound.isSocks" style="margin-bottom: 10px; width: 100%;">
+        <table v-if="dbInbound.isSocks" style="margin-bottom: 10px; width: 100%; text-align: center;">
             <tr>
-                <th>{{ i18n "password" }} Auth</th>
-                <th>{{ i18n "pages.inbounds.enable" }} udp</th>
+                <th>Auth</th>
+                <th>UDP {{ i18n "pages.inbounds.enable" }}</th>
                 <th>IP</th>
             </tr>
             <tr>
@@ -260,9 +261,9 @@
             </tr>
             </template>
         </table>
-        <table v-if="dbInbound.isHTTP" style="margin-bottom: 10px; width: 100%;">
+        <table v-if="dbInbound.isHTTP" style="margin-bottom: 10px; width: 100%; text-align: center;">
             <tr>
-                <th> </th>
+                <th>Index</th>
                 <th>{{ i18n "username" }}</th>
                 <th>{{ i18n "password" }}</th>
             </tr><tr v-for="account,index in inbound.settings.accounts">
@@ -273,19 +274,19 @@
         </table>
         <table v-if="dbInbound.isWireguard" style="margin-bottom: 10px; width: 100%;">
             <tr class="client-table-odd-row">
-                <td>{{ i18n "pages.xray.wireguard.secretKey" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.secretKey" }}:</td>
                 <td>[[ inbound.settings.secretKey ]]</td>
             </tr>
             <tr>
-                <td>{{ i18n "pages.xray.wireguard.publicKey" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.publicKey" }}:</td>
                 <td>[[ inbound.settings.pubKey ]]</td>
             </tr>
             <tr class="client-table-odd-row">
-                <td>MTU</td>
+                <td>MTU:</td>
                 <td>[[ inbound.settings.mtu ]]</td>
             </tr>
             <tr>
-                <td>Kernel Mode</td>
+                <td>Kernel Mode:</td>
                 <td>[[ inbound.settings.kernelMode ]]</td>
             </tr>
         <template v-for="(peer, index) in inbound.settings.peers">
@@ -293,30 +294,30 @@
                 <td colspan="2"><a-divider>Peer [[ index + 1 ]]</a-divider></td>
             </tr>
             <tr class="client-table-odd-row">
-                <td>{{ i18n "pages.xray.wireguard.secretKey" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.secretKey" }}:</td>
                 <td>[[ peer.privateKey ]]</td>
             </tr>
             <tr>
-                <td>{{ i18n "pages.xray.wireguard.publicKey" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.publicKey" }}:</td>
                 <td>[[ peer.publicKey ]]</td>
             </tr>
             <tr class="client-table-odd-row">
-                <td>{{ i18n "pages.xray.wireguard.psk" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.psk" }}:</td>
                 <td>[[ peer.psk ]]</td>
             </tr>
             <tr>
-                <td>{{ i18n "pages.xray.wireguard.allowedIPs" }}</td>
+                <td>{{ i18n "pages.xray.wireguard.allowedIPs" }}:</td>
                 <td>[[ peer.allowedIPs.join(",") ]]</td>
             </tr>
             <tr class="client-table-odd-row">
-                <td>Keep Alive</td>
+                <td>Keep Alive:</td>
                 <td>[[ peer.keepAlive ]]</td>
             </tr>
             <tr>
                 <td colspan="2">
                     <a-row>
                         <a-col :span="22" style="overflow-wrap: anywhere;">
-                            <a-tag color="blue">Config</a-tag>
+                            <td colspan="3"><a-divider>Config</a-divider></td>
                             <div 
                             v-html="infoModal.links[index].replaceAll(`\n`,`<br />`)"
                             style="border-radius: 1rem; padding: 0.5rem;"
