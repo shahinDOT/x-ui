@@ -291,8 +291,10 @@
             </tr>
         <template v-for="(peer, index) in inbound.settings.peers">
             <tr>
-                <td colspan="2"><a-divider>Peer [[ index + 1 ]]</a-divider></td>
-            </tr>
+    <td colspan="2" style="vertical-align: middle;">
+        <a-divider style="margin: 0;">Peer [[ index + 1 ]]</a-divider>
+    </td>
+</tr>
             <tr class="client-table-odd-row">
                 <td>{{ i18n "pages.xray.wireguard.secretKey" }}:</td>
                 <td>[[ peer.privateKey ]]</td>
