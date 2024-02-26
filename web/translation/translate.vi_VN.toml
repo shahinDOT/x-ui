@@ -52,12 +52,12 @@
 "remained" = "Còn lại"
 "secAlertTitle" = "Cảnh báo an ninh-Tiếng Việt by Ohoang7"
 "secAlertSsl" = "Kết nối này không an toàn; Vui lòng không nhập thông tin nhạy cảm cho đến khi TLS được kích hoạt để bảo vệ dữ liệu của Bạn"
-"secAlertConf" = "Certain settings are vulnerable to attacks. It is recommended to reinforce security protocols to prevent potential breaches."
-"secAlertSSL" = "Panel web service is insecure. Install SSL/TLS certificate."
-"secAlertPanelPort" = "Panel default port is vulnerable. Configure a random or specific port."
-"secAlertPanelURI" = "Panel default URI path is insecure. Configure a complex URI path."
-"secAlertSubURI" = "Subscription default URI path is insecure. Configure a complex URI path."
-"secAlertSubJsonURI" = "Subscription JSON default URI path is insecure. Configure a complex URI path."
+"secAlertConf" = "Các cài đặt nhất định có thể dễ bị tấn công. Đề xuất tăng cường các giao thức bảo mật để ngăn chặn các rủi ro tiềm ẩn."
+"secAlertSSL" = "Dịch vụ web X-UI không an toàn. Cài đặt chứng chỉ SSL/TLS."
+"secAlertPanelPort" = "Cổng mặc định của X-UI có thể bị tấn công. Cấu hình một cổng ngẫu nhiên hoặc cụ thể."
+"secAlertPanelURI" = "Đường dẫn URI mặc định của X-UI không an toàn. Cấu hình một đường dẫn URI phức tạp."
+"secAlertSubURI" = "Đường dẫn URI mặc định của Subscription không an toàn. Cấu hình một đường dẫn URI phức tạp."
+"secAlertSubJsonURI" = "Đường dẫn URI JSON mặc định của Subscription không an toàn. Cấu hình một đường dẫn URI phức tạp."
 "security" = "Bảo vệ"
 
 [menu]
