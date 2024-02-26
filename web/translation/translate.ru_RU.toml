@@ -52,12 +52,12 @@
 "remained" = "Осталось"
 "secAlertTitle" = "Предупреждение системы безопасности"
 "secAlertSsl" = "Это соединение не защищено. Пожалуйста, воздержитесь от ввода конфиденциальной информации до тех пор, пока не будет активирован TLS для защиты данных"
-"secAlertConf" = "Certain settings are vulnerable to attacks. It is recommended to reinforce security protocols to prevent potential breaches."
-"secAlertSSL" = "Panel web service is insecure. Install SSL/TLS certificate."
-"secAlertPanelPort" = "Panel default port is vulnerable. Configure a random or specific port."
-"secAlertPanelURI" = "Panel default URI path is insecure. Configure a complex URI path."
-"secAlertSubURI" = "Subscription default URI path is insecure. Configure a complex URI path."
-"secAlertSubJsonURI" = "Subscription JSON default URI path is insecure. Configure a complex URI path."
+"secAlertConf" = "Некоторые настройки уязвимы для атак. Рекомендуется усилить протоколы безопасности, чтобы предотвратить потенциальные нарушения."
+"secAlertSSL" = "Веб-сервис панели небезопасен. Установите сертификат SSL/TLS."
+"secAlertPanelPort" = "Порт по умолчанию панели небезопасен. Настройте случайный или определенный порт."
+"secAlertPanelURI" = "URI-путь по умолчанию панели небезопасен. Настройте сложный URI-путь."
+"secAlertSubURI" = "URI-путь по умолчанию подписки небезопасен. Настройте сложный URI-путь."
+"secAlertSubJsonURI" = "URI-путь по умолчанию JSON подписки небезопасен. Настройте сложный URI-путь."
 "security" = "Безопасность"
 
 [menu]
