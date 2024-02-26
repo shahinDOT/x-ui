@@ -251,11 +251,11 @@
             </tr>
             <template v-if="inbound.settings.auth == 'password'">
             <tr>
-                <td> </td>
+                <td>Index</td>
                 <td>{{ i18n "username" }}</td>
                 <td>{{ i18n "password" }}</td>
             </tr><tr v-for="account,index in inbound.settings.accounts">
-                <td>[[ index ]]</td>
+                <td><a-tag color="blue">[[ index ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.user ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.pass ]]</a-tag></td>
             </tr>
@@ -267,7 +267,7 @@
                 <th>{{ i18n "username" }}</th>
                 <th>{{ i18n "password" }}</th>
             </tr><tr v-for="account,index in inbound.settings.accounts">
-                <td>[[ index ]]</td>
+                <td><a-tag color="blue">[[ index ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.user ]]</a-tag></td>
                 <td><a-tag color="blue">[[ account.pass ]]</a-tag></td>
             </tr>
