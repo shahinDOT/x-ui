@@ -9,23 +9,26 @@
     >
     <a-row>
         <a-col :xs="24" :md="12">
-            <table>
-                <tr>
-                    <td>{{ i18n "protocol" }}:</td><td> <a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td>
-                    </tr>
-                    <tr>
-                    <td>{{ i18n "pages.inbounds.address" }}:</td><td>
-                    <a-tooltip :title="[[ dbInbound.address ]]">
-                        <a-tag class="info-large-tag">[[ dbInbound.address ]]</a-tag>
-                    </a-tooltip>
-                     </td>
-                    </tr>
-                   <tr>
-                    <td>{{ i18n "pages.inbounds.port" }}:</td><td><a-tag>[[ dbInbound.port ]]</a-tag>                  
-                    </td>
-                </tr>
-            </table>
-        </a-col>
+    <table>
+        <tr>
+            <td>{{ i18n "protocol" }}:</td>
+            <td><a-tag color="purple">[[ dbInbound.protocol ]]</a-tag></td>
+        </tr>
+        <tr>
+            <td>{{ i18n "pages.inbounds.address" }}:</td>
+            <td>
+                <a-tooltip :title="[[ dbInbound.address ]]">
+                    <a-tag class="info-large-tag">[[ dbInbound.address ]]</a-tag>
+                </a-tooltip>
+            </td>
+        </tr>
+        <tr>
+            <td>{{ i18n "pages.inbounds.port" }}:</td>
+            <td><a-tag>[[ dbInbound.port ]]</a-tag></td>
+        </tr>
+    </table>
+</a-col>
+
         <a-col :xs="24" :md="12">
         <template v-if="dbInbound.isVMess || dbInbound.isVLess || dbInbound.isTrojan || dbInbound.isSS">
             <table>
@@ -74,26 +77,39 @@
         </template>
         </a-col>
         <template v-if="dbInbound.hasLink()">
-            {{ i18n "security" }}:
+    <tr>
+        <td>{{ i18n "security" }}:</td>
+    </tr>
+    <tr>
+        <td>
             <a-tag :color="inbound.stream.security == 'none' ? 'red' : 'green'">[[ inbound.stream.security ]]</a-tag>
-            <br />
-            <template v-if="inbound.stream.security != 'none'">
-            SNI:
-            <a-tag :color="inbound.serverName ? 'green' : 'orange'">[[ inbound.serverName ? inbound.serverName : '' ]]</a-tag>
-            </template>
-        </template>
+        </td>
+    </tr>
+    <template v-if="inbound.stream.security != 'none'">
+        <tr>
+            <td>SNI:</td>
+        </tr>
+        <tr>
+            <td>
+                <a-tag :color="inbound.serverName ? 'green' : 'orange'">[[ inbound.serverName ? inbound.serverName : '' ]]</a-tag>
+            </td>
+        </tr>
+    </template>
+</template>
     <table v-if="dbInbound.isSS" style="margin-bottom: 10px; width: 100%;">
         <tr>
             <td>{{ i18n "encryption" }}:</td>
             <td><a-tag color="blue">[[ inbound.settings.method ]]</a-tag></td>
-        </tr><tr v-if="inbound.isSS2022">
+        </tr>
+        <tr v-if="inbound.isSS2022">
             <td>{{ i18n "password" }}:</td>
             <td>
                 <a-tooltip :title="[[ inbound.settings.password  ]]">
                     <a-tag class="info-large-tag">[[ inbound.settings.password  ]]</a-tag>
                 </a-tooltip>
             </td>
-        </tr><tr>
+        </tr>
+        <tr>
             <td>{{ i18n "pages.inbounds.network" }}:</td>
             <td><a-tag color="blue">[[ inbound.settings.network ]]</a-tag></td>
         </tr>
