@@ -26,12 +26,15 @@
         <a-layout-content>
             <a-spin :spinning="spinning" :delay="200" :tip="loadingTip"/>
             <transition name="list" appear>
-                <a-alert type="error" v-if="showAlert" style="margin-bottom: 10px"
+                <a-alert type="error" v-if="showAlert" style="margin: 10px 5px;"
                 message='{{ i18n "secAlertTitle" }}'
                 color="red"
-                description='{{ i18n "secAlertSsl" }}'
                 show-icon closable
                 >
+                <template slot="description">
+                    <b>{{ i18n "secAlertSsl" }}</b>
+                    <ul><li v-for="a in confAlerts">[[ a ]]</li></ul>
+                    </template>
                 </a-alert>
             </transition>
             <transition name="list" appear>
