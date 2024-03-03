@@ -91,7 +91,7 @@
                                 <template slot="title">
                                     {{ i18n "pages.index.hostname" }}
                                   </template>
-                                <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
+                                <a-tag color="black" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
                               </a-tooltip>
                                 <template v-if="status.hostInfo.ipv4">    
                             <a-tooltip>
@@ -101,11 +101,11 @@
                                 <br><b>IPv6:</b><br>[[ status.hostInfo.ipv6 ]]
                             </template>
                             </template>
-                            <a-tag color="blue" style="margin-right: 3px;">IPv4/v6</a-tag>
+                            <a-tag color="black" style="margin-right: 3px;">IPv4/v6</a-tag>
                             </a-tooltip>
                             </template>
                             <a href="https://github.com/alireza0/x-ui/releases" target="_blank">
-                                <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> v{{ .cur_ver }}</a-tag>
+                                <a-tag color="black" style="cursor: pointer;"><b>X-UI:</b> v{{ .cur_ver }}</a-tag>
                             </a>  
                         </a-card>
                     </a-col>
