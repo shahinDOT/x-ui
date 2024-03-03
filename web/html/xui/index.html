@@ -105,7 +105,7 @@
                             </a-tooltip>
                             </template>
                             <a href="https://github.com/alireza0/x-ui/releases" target="_blank">
-                                <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> {{ .cur_ver }}</a-tag>
+                                <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> v{{ .cur_ver }}</a-tag>
                             </a>  
                         </a-card>
                     </a-col>
@@ -154,7 +154,7 @@
                             <a-tag color="purple" style="cursor: pointer; margin-right: 3px;" @click="stopXrayService">{{ i18n "pages.index.stopXray" }}</a-tag>
                             <a-tag color="purple" style="cursor: pointer; margin-right: 3px;" @click="restartXrayService">{{ i18n "pages.index.restartXray" }}</a-tag>
                             <a-tooltip title='{{ i18n "pages.index.xraySwitch" }}'>
-                                <a-tag color="purple" style="cursor: pointer;" @click="openSelectV2rayVersion"><b>Xray:</b> [[ status.xray.version ]]</a-tag>
+                                <a-tag color="purple" style="cursor: pointer;" @click="openSelectV2rayVersion">v[[ status.xray.version ]]</a-tag>
                             </a-tooltip>             
                         </a-card>
                     </a-col>
