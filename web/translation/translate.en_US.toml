@@ -66,7 +66,7 @@
 "settings" = "Panel Settings"
 "xray" = "Xray Configs"
 "logout" = "Log Out"
-"link" = "Manage"
+"link" = "MANAGE"
 
 [pages.login]
 "title" = "Welcome"
