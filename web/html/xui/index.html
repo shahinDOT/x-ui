@@ -90,25 +90,22 @@
                             <a-tooltip>
                                 <template slot="title">
                                     {{ i18n "pages.index.hostname" }}
-                                </template>
+                                  </template>
+                                <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
+                              </a-tooltip>
                                 <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
                             </a-tooltip>
-                            <template v-if="status.hostInfo.ipv4">    
-                                <a-tooltip>
-                                    <template slot="title">
-                                        [[ status.hostInfo.ipv4 ]]
-                                    </template>
-                                    <a-tag color="blue" style="margin-right: 3px;">IPv4</a-tag>
-                                </a-tooltip>
+                                <template v-if="status.hostInfo.ipv4">    
+                            <a-tooltip>
+                            <template slot="title">
+                                <b>IPv4:</b><br>[[ status.hostInfo.ipv4 ]]
+                            <template v-if="status.hostInfo.ipv6">       
+                                <br><b>IPv6:</b><br>[[ status.hostInfo.ipv6 ]]
                             </template>
-                            <template v-if="status.hostInfo.ipv6">
-                                <a-tooltip>
-                                    <template slot="title">
-                                        [[ status.hostInfo.ipv6 ]]
-                                    </template>
-                                    <a-tag color="blue" style="margin-right: 3px;">IPv6</a-tag>
-                                </a-tooltip>
                             </template>
+                            <a-tag color="blue" style="margin-right: 3px;">IPv4/v6</a-tag>
+                           </a-tooltip>
+                         </template>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
