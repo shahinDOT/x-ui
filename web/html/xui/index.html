@@ -47,7 +47,9 @@
                                                     :stroke-color="status.cpu.color"
                                                     :percent="status.cpu.percent"></a-progress>
                                             <div>
-                                                <p><strong>CPU:</strong></p>
+                                                <p style="margin-bottom: 1px; text-align: center;">
+                                                <strong>CPU:</strong>
+                                                </p>
                                                 [[ cpuCoreFormat(status.cpuCount) ]]
                                             </div>
                                     </a-col>
@@ -56,7 +58,8 @@
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                            <p><strong>{{ i18n "pages.index.memory"}}:</strong></p>
+                                            <p style="margin-bottom: 1px; text-align: center;">
+                                            <strong>{{ i18n "pages.index.memory"}}:</strong></p>
                                             [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
                                         </div>
                                     </a-col>
@@ -69,7 +72,8 @@
                                                     :stroke-color="status.swap.color"
                                                     :percent="status.swap.percent"></a-progress>
                                         <div>
-                                            <p><strong>SWAP:</strong></p>
+                                            <p style="margin-bottom: 1px; text-align: center;">
+                                            <strong>SWAP:</strong></p>
                                             [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
                                         </div>
                                     </a-col>
@@ -78,7 +82,8 @@
                                                     :stroke-color="status.disk.color"
                                                     :percent="status.disk.percent"></a-progress>
                                         <div>
-                                            <p><strong>{{ i18n "pages.index.hard"}}:</strong></p>
+                                            <p style="margin-bottom: 1px; text-align: center;">
+                                            <strong>{{ i18n "pages.index.hard"}}:</strong></p>
                                             [[ sizeFormat(status.disk.current) ]] / [[ sizeFormat(status.disk.total) ]]
                                         </div>
                                     </a-col>
