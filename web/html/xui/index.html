@@ -219,7 +219,7 @@
                                         <template slot="title">
                                             {{ i18n "pages.index.upSpeed" }}
                                         </template>
-                                         [[ sizeFormat(status.netIO.up) ]]/s
+                                         <a-tag>[[ sizeFormat(status.netIO.up) ]]/s</a-tag>
                                     </a-tooltip>
                                 </a-col>
                                 <a-col :span="12">
@@ -229,7 +229,7 @@
                                         <template slot="title">
                                             {{ i18n "pages.index.downSpeed" }}
                                         </template>
-                                         [[ sizeFormat(status.netIO.down) ]]/s
+                                         <a-tag>[[ sizeFormat(status.netIO.down) ]]/s</a-tag>
                                     </a-tooltip>
                                 </a-col>
                             </a-row>
@@ -245,7 +245,7 @@
                                         <template slot="title">
                                             {{ i18n "pages.index.totalSent" }}
                                         </template>
-                                         [[ sizeFormat(status.netTraffic.sent) ]]
+                                         <a-tag>[[ sizeFormat(status.netTraffic.sent) ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
                                 <a-col :span="12">
@@ -255,7 +255,7 @@
                                         <template slot="title">
                                             {{ i18n "pages.index.totalReceive" }}
                                         </template>
-                                        [[ sizeFormat(status.netTraffic.recv) ]]
+                                        <a-tag>[[ sizeFormat(status.netTraffic.recv) ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
                             </a-row>
