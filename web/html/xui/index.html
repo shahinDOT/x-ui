@@ -111,17 +111,6 @@
                     </a-col>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
-                            <strong>VERSION:</strong>
-                            <a href="https://github.com/alireza0/x-ui/releases" target="_blank">
-                                <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> {{ .cur_ver }}</a-tag>
-                            </a>
-                            <a-tooltip title='{{ i18n "pages.index.xraySwitch" }}'>
-                                <a-tag color="purple" style="cursor: pointer;" @click="openSelectV2rayVersion"><b>Xray:</b> [[ status.xray.version ]]</a-tag>
-                            </a-tooltip>
-                        </a-card>
-                    </a-col>
-                    <a-col :sm="24" :md="12">
-                        <a-card hoverable>
                             <strong>{{ i18n "pages.index.operationHours" }}:</strong> 
                             <a-tooltip>
                                  <template slot="title">
@@ -182,33 +171,6 @@
                             <strong>{{ i18n "usage" }}:</strong>
                             <a-tag color="blue" style="margin-right: 3px;"><b>RAM:</b> [[ sizeFormat(status.appStats.mem) ]]</a-tag>
                             <a-tag color="blue"><b>Threads:</b> [[ status.appStats.threads ]]</a-tag>
-                        </a-card>
-                    </a-col>
-                    <a-col :sm="24" :md="12">
-                        <a-card hoverable>
-                            <strong>{{ i18n "pages.index.serverInfo" }}:</strong>
-                            <a-tooltip>
-                                <template slot="title">
-                                    {{ i18n "pages.index.hostname" }}
-                                </template>
-                                <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
-                            </a-tooltip>
-                            <template v-if="status.hostInfo.ipv4">    
-                                <a-tooltip>
-                                    <template slot="title">
-                                        [[ status.hostInfo.ipv4 ]]
-                                    </template>
-                                    <a-tag color="blue" style="margin-right: 3px;">IPv4</a-tag>
-                                </a-tooltip>
-                            </template>
-                            <template v-if="status.hostInfo.ipv6">
-                                <a-tooltip>
-                                    <template slot="title">
-                                        [[ status.hostInfo.ipv6 ]]
-                                    </template>
-                                    <a-tag color="blue" style="margin-right: 3px;">IPv6</a-tag>
-                                </a-tooltip>
-                            </template>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
