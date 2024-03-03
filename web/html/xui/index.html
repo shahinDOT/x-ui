@@ -65,7 +65,7 @@
                                                     :stroke-color="status.swap.color"
                                                     :percent="status.swap.percent"></a-progress>
                                         <div>
-                                            <strong>Swap:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
+                                            <strong>SWAP:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
                                         </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
@@ -111,7 +111,7 @@
                     </a-col>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
-                            <strong>{{ i18n "pages.inbounds.stream.tcp.version" }}:</strong>
+                            <strong>VERSION:</strong>
                             <a href="https://github.com/alireza0/x-ui/releases" target="_blank">
                                 <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> {{ .cur_ver }}</a-tag>
                             </a>
