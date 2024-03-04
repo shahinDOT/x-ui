@@ -186,7 +186,7 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="swap"></a-icon>
                                     <strong>TCP:</Strong>    
                                     <a-tooltip>
@@ -196,7 +196,7 @@
                                          <a-tag>[[ status.tcpCount ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="swap"></a-icon>
                                     <strong>UDP:</strong>
                                     <a-tooltip>
@@ -212,7 +212,7 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="arrow-up"></a-icon>
                                     <strong>Up:</strong>
                                     <a-tooltip>
@@ -222,7 +222,7 @@
                                          <a-tag>[[ sizeFormat(status.netIO.up) ]]/s</a-tag>
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="arrow-down"></a-icon>
                                     <strong>Down:</strong>
                                     <a-tooltip>
@@ -238,7 +238,7 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="cloud-upload"></a-icon>
                                     <strong>Out:</strong>
                                     <a-tooltip>
@@ -248,7 +248,7 @@
                                          <a-tag>[[ sizeFormat(status.netTraffic.sent) ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12">
+                                <a-col :span="12" style="text-align: center">
                                     <a-icon type="cloud-download"></a-icon>
                                     <strong>In:</strong>
                                     <a-tooltip>
