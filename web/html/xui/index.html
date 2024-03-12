@@ -407,7 +407,7 @@
             }
             this.cpu = new CurTotal(data.cpu, 100);
             this.cpuCount = data.cpuCount;
-            this.disk = new CurTotal(data.disk.current, data.disk.total);
+            this.disk = new CurTotal(parseInt(data.disk.current), parseInt(data.disk.total));
             this.loads = data.loads.map(load => toFixed(load, 2));
             this.mem = new CurTotal(data.mem.current, data.mem.total);
             this.netIO = data.netIO;
