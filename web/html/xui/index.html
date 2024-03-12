@@ -409,10 +409,10 @@
             this.cpuCount = data.cpuCount;
             this.disk = new CurTotal(parseInt(data.disk.current), parseInt(data.disk.total));
             this.loads = data.loads.map(load => toFixed(load, 2));
-            this.mem = new CurTotal(data.mem.current, data.mem.total);
+            this.mem = new CurTotal(parseInt(data.mem.current), parseInt(data.mem.total));
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
-            this.swap = new CurTotal(data.swap.current, data.swap.total);
+            this.swap = new CurTotal(parseInt(data.swap.current), parseInt(data.swap.total));
             this.tcpCount = data.tcpCount;
             this.udpCount = data.udpCount;
             this.uptime = data.uptime;
