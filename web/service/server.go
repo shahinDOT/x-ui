@@ -114,12 +114,13 @@ func (s *ServerService) GetStatus(lastStatus *Status) *Status {
 	}
 
 	memInfo, err := mem.VirtualMemory()
-	if err != nil {
-		logger.Warning("get virtual memory failed:", err)
-	} else {
-		status.Mem.Current = memInfo.Used
-		status.Mem.Total = memInfo.Total
-	}
+if err != nil {
+    logger.Warning("get virtual memory failed:", err)
+} else {
+    // Truncate decimal parts before assigning to status.Mem.Current and status.Mem.Total
+    status.Mem.Current = int64(math.Trunc(memInfo.Used))
+    status.Mem.Total = int64(math.Trunc(memInfo.Total))
+}
 
 	swapInfo, err := mem.SwapMemory()
 	if err != nil {
