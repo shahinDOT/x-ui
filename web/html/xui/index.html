@@ -401,7 +401,7 @@
             this.cpuCount = data.cpuCount;
             this.disk = new CurTotal(data.disk.current, data.disk.total);
             this.loads = data.loads.map(load => toFixed(load, 2));
-            this.mem = new CurTotal(data.mem.current, data.mem.total);
+            this.mem = new CurTotal(Math.trunc(data.mem.current), Math.trunc(data.mem.total));
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
             this.swap = new CurTotal(data.swap.current, data.swap.total);
