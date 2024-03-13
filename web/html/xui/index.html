@@ -29,11 +29,9 @@
                 <a-alert type="error" v-if="showAlert" style="margin-bottom: 10px"
                 message='{{ i18n "secAlertTitle" }}'
                 color="red"
+                description='{{ i18n "secAlertSsl" }}'
                 show-icon closable
                 >
-                <template slot="description">
-                    <b>{{ i18n "secAlertSsl" }}</b>
-                    </template>
                 </a-alert>
             </transition>
             <transition name="list" appear>
@@ -42,26 +40,18 @@
                         <a-row>
                             <a-col :sm="24" :md="12">
                                 <a-row>
-                                    <a-col :span="12" style="text-align: center;">
-    <a-progress type="dashboard" status="normal"
-                :stroke-color="status.cpu.color"
-                :percent="status.cpu.percent"></a-progress>
-    <div style="text-align: center;">
-        CPU
-    </div>
-    <div style="text-align: center;">
-        {{ cpuCoreFormat(status.cpuCount) }}
-    </div>
-</a-col>
-
+                                    <a-col :span="12" style="text-align: center">
+                                        <a-progress type="dashboard" status="normal"
+                                                    :stroke-color="status.cpu.color"
+                                                    :percent="status.cpu.percent"></a-progress>
+                                            <div><strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]</div>
+                                    </a-col>
                                     <a-col :span="12" style="text-align: center">
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                            <p style="margin-bottom: 0px; text-align: center;">
-                                            <strong>{{ i18n "pages.index.memory"}}</strong></p>
-                                            [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
+                                            <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
@@ -73,9 +63,7 @@
                                                     :stroke-color="status.swap.color"
                                                     :percent="status.swap.percent"></a-progress>
                                         <div>
-                                            <p style="margin-bottom: 0px; text-align: center;">
-                                            <strong>SWAP</strong></p>
-                                            [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
+                                            <strong>Swap:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
                                         </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
@@ -83,9 +71,7 @@
                                                     :stroke-color="status.disk.color"
                                                     :percent="status.disk.percent"></a-progress>
                                         <div>
-                                            <p style="margin-bottom: 0px; text-align: center;">
-                                            <strong>{{ i18n "pages.index.hard"}}</strong></p>
-                                            [[ sizeFormat(status.disk.current) ]] / [[ sizeFormat(status.disk.total) ]]
+                                            <strong>{{ i18n "pages.index.hard"}}:</strong> [[ sizeFormat(status.disk.current) ]] / [[ sizeFormat(status.disk.total) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
@@ -98,27 +84,13 @@
                 <a-row>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
-                            <strong>{{ i18n "pages.index.serverInfo" }}:</strong>
-                            <a-tooltip>
-                                <template slot="title">
-                                    {{ i18n "pages.index.hostname" }}
-                                  </template>
-                                <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
-                              </a-tooltip>
-                                <template v-if="status.hostInfo.ipv4">    
-                            <a-tooltip>
-                            <template slot="title">
-                                <b>IPv4:</b><br>[[ status.hostInfo.ipv4 ]]
-                            <template v-if="status.hostInfo.ipv6">       
-                                <br><b>IPv6:</b><br>[[ status.hostInfo.ipv6 ]]
-                            </template>
-                            </template>
-                            <a-tag color="blue" style="margin-right: 3px;">IPv4/v6</a-tag>
-                            </a-tooltip>
-                            </template>
+                            <strong>{{ i18n "pages.inbounds.stream.tcp.version" }}:</strong>
                             <a href="https://github.com/alireza0/x-ui/releases" target="_blank">
-                                <a-tag color="purple" style="cursor: pointer;"><b>X-UI:</b> v{{ .cur_ver }}</a-tag>
-                            </a>  
+                                <a-tag color="purple" style="cursor: pointer;">X-UI {{ .cur_ver }}</a-tag>
+                            </a>
+                            <a-tooltip title='{{ i18n "pages.index.xraySwitch" }}'>
+                                <a-tag color="purple" style="cursor: pointer;" @click="openSelectV2rayVersion">Xray [[ status.xray.version ]]</a-tag>
+                            </a-tooltip>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
@@ -128,23 +100,23 @@
                                  <template slot="title">
                                      {{ i18n "pages.index.xrayoperationHoursDesc" }}
                                  </template>
-                                <a-tag :color="status.xray.color" style="margin-right: 3px;"><b>Xray:</b> [[ formatSecond(status.appStats.uptime) ]]</a-tag>
+                                <a-tag color="blue" style="margin-right: 3px;">Xray [[ formatSecond(status.appStats.uptime) ]]</a-tag>
                             </a-tooltip>      
                             <a-tooltip>
                                 <template slot="title">
                                     {{ i18n "pages.index.operationHoursDesc" }}
                                 </template>
-                                 <a-tag color="blue"><b>OS:</b> [[ formatSecond(status.uptime) ]]</a-tag>
+                                 <a-tag color="blue">OS [[ formatSecond(status.uptime) ]]</a-tag>
                             </a-tooltip>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <strong>{{ i18n "pages.index.xrayStatus" }}:</strong>
-                            <a-tag :color="status.xray.color" style="margin-right: 3px;"><b>[[ status.xray.state ]]</b></a-tag>
+                            <a-tag :color="status.xray.color" style="margin-right: 3px;"><strong>[[ status.xray.state ]]</strong></a-tag>
                             <a-popover v-if="status.xray.state === State.Error"
                                 :overlay-class-name="themeSwitcher.currentTheme">
-                                <span slot="title" style="font-size: 12pt">Error While Running Xray
+                                <span slot="title" style="font-size: 12pt">An error occurred while running Xray
                                     <a-tag color="purple" style="cursor: pointer; float: right;" @click="openLogs()">{{ i18n "pages.index.logs" }}</a-tag>
                                 </span>
                                 <template slot="content">
@@ -153,10 +125,7 @@
                                 <a-icon type="exclamation-circle"></a-icon>
                             </a-popover>
                             <a-tag color="purple" style="cursor: pointer; margin-right: 3px;" @click="stopXrayService">{{ i18n "pages.index.stopXray" }}</a-tag>
-                            <a-tag color="purple" style="cursor: pointer; margin-right: 3px;" @click="restartXrayService">{{ i18n "pages.index.restartXray" }}</a-tag>
-                            <a-tooltip title='{{ i18n "pages.index.xraySwitch" }}'>
-                                <a-tag color="purple" style="cursor: pointer;" @click="openSelectV2rayVersion">v[[ status.xray.version ]]</a-tag>
-                            </a-tooltip>             
+                            <a-tag color="purple" style="cursor: pointer; margin-right: 3px;" @click="restartXrayService">{{ i18n "pages.index.restartXray" }}</a-tag>             
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
@@ -181,31 +150,56 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <strong>{{ i18n "usage" }}:</strong>
-                            <a-tag color="blue" style="margin-right: 3px;"><b>RAM:</b> [[ sizeFormat(status.appStats.mem) ]]</a-tag>
-                            <a-tag color="blue"><b>Threads:</b> [[ status.appStats.threads ]]</a-tag>
+                            <a-tag color="blue" style="margin-right: 3px;">RAM [[ sizeFormat(status.appStats.mem) ]]</a-tag>
+                            <a-tag color="blue">Threads [[ status.appStats.threads ]]</a-tag>
+                        </a-card>
+                    </a-col>
+                    <a-col :sm="24" :md="12">
+                        <a-card hoverable>
+                            <strong>{{ i18n "pages.index.serverInfo" }}:</strong>
+                            <a-tooltip>
+                                <template slot="title">
+                                    {{ i18n "pages.index.hostname" }}
+                                </template>
+                                <a-tag color="blue" style="margin-right: 3px;">[[ status.hostInfo.hostname ]]</a-tag>
+                            </a-tooltip>
+                            <template v-if="status.hostInfo.ipv4">    
+                                <a-tooltip>
+                                    <template slot="title">
+                                        [[ status.hostInfo.ipv4 ]]
+                                    </template>
+                                    <a-tag color="blue" style="margin-right: 3px;">IPv4</a-tag>
+                                </a-tooltip>
+                            </template>
+                            <template v-if="status.hostInfo.ipv6">
+                                <a-tooltip>
+                                    <template slot="title">
+                                        [[ status.hostInfo.ipv6 ]]
+                                    </template>
+                                    <a-tag color="blue" style="margin-right: 3px;">IPv6</a-tag>
+                                </a-tooltip>
+                            </template>
                         </a-card>
                     </a-col>
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12" style="text-align: center">
-                                    <a-icon type="swap"></a-icon>
-                                    <strong>TCP:</Strong>    
+                                <a-col :span="12">
+                                    <a-icon type="swap"></a-icon>    
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.connectionTcpCountDesc" }}
                                         </template>
-                                         <a-tag>[[ status.tcpCount ]]</a-tag>
+                                        <strong>TCP:</Strong> <a-tag>[[ status.tcpCount ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12" style="text-align: center">
+                                <a-col :span="12">
                                     <a-icon type="swap"></a-icon>
-                                    <strong>UDP:</strong>
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.connectionUdpCountDesc" }}
                                         </template>
-                                         <a-tag>[[ status.udpCount ]]</a-tag>
+                                        <strong>UDP:</strong> <a-tag>[[ status.udpCount ]]</a-tag>
                                     </a-tooltip>
                                 </a-col>
                             </a-row>
@@ -214,24 +208,22 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12" style="text-align: center">
+                                <a-col :span="12">
                                     <a-icon type="arrow-up"></a-icon>
-                                    <strong>Up:</strong>
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.upSpeed" }}
                                         </template>
-                                         <a-tag>[[ sizeFormat(status.netIO.up) ]]/s</a-tag>
+                                        <strong>Up:</strong> [[ sizeFormat(status.netIO.up) ]]/s
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12" style="text-align: center">
+                                <a-col :span="12">
                                     <a-icon type="arrow-down"></a-icon>
-                                    <strong>Down:</strong>
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.downSpeed" }}
                                         </template>
-                                         <a-tag>[[ sizeFormat(status.netIO.down) ]]/s</a-tag>
+                                        <strong>Down:</strong> [[ sizeFormat(status.netIO.down) ]]/s
                                     </a-tooltip>
                                 </a-col>
                             </a-row>
@@ -240,24 +232,22 @@
                     <a-col :sm="24" :md="12">
                         <a-card hoverable>
                             <a-row>
-                                <a-col :span="12" style="text-align: center">
+                                <a-col :span="12">
                                     <a-icon type="cloud-upload"></a-icon>
-                                    <strong>Out:</strong>
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.totalSent" }}
                                         </template>
-                                         <a-tag>[[ sizeFormat(status.netTraffic.sent) ]]</a-tag>
+                                        <strong>Out:</strong> [[ sizeFormat(status.netTraffic.sent) ]]
                                     </a-tooltip>
                                 </a-col>
-                                <a-col :span="12" style="text-align: center">
+                                <a-col :span="12">
                                     <a-icon type="cloud-download"></a-icon>
-                                    <strong>In:</strong>
                                     <a-tooltip>
                                         <template slot="title">
                                             {{ i18n "pages.index.totalReceive" }}
                                         </template>
-                                        <a-tag>[[ sizeFormat(status.netTraffic.recv) ]]</a-tag>
+                                       <strong>In:</strong> [[ sizeFormat(status.netTraffic.recv) ]]
                                     </a-tooltip>
                                 </a-col>
                             </a-row>
@@ -407,12 +397,12 @@
             }
             this.cpu = new CurTotal(data.cpu, 100);
             this.cpuCount = data.cpuCount;
-            this.disk = new CurTotal(parseInt(data.disk.current), parseInt(data.disk.total));
+            this.disk = new CurTotal(data.disk.current, data.disk.total);
             this.loads = data.loads.map(load => toFixed(load, 2));
-            this.mem = new CurTotal(parseInt(data.mem.current), parseInt(data.mem.total));
+            this.mem = new CurTotal(data.mem.current, data.mem.total);
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
-            this.swap = new CurTotal(parseInt(data.swap.current), parseInt(data.swap.total));
+            this.swap = new CurTotal(data.swap.current, data.swap.total);
             this.tcpCount = data.tcpCount;
             this.udpCount = data.udpCount;
             this.uptime = data.uptime;
