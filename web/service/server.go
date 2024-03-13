@@ -114,16 +114,15 @@ func (s *ServerService) GetStatus(lastStatus *Status) *Status {
 		status.Uptime = upTime
 	}
 
-	memInfo, err := mem.VirtualMemory()
+memInfo, err := mem.VirtualMemory()
 if err != nil {
     logger.Warning("get virtual memory failed:", err)
 } else {
-    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Current
-    status.Mem.Current = int64(math.Trunc(float64(memInfo.Used)))
+    // Convert uint64 to float64, truncate decimal parts, and then convert to uint64
+    status.Mem.Current = uint64(math.Trunc(float64(memInfo.Used)))
 
-    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Total
-    totalTruncated := int64(math.Trunc(float64(memInfo.Total)))
-    status.Mem.Total = uint64(totalTruncated)
+    // Similar conversion for status.Mem.Total
+    status.Mem.Total = uint64(math.Trunc(float64(memInfo.Total)))
 }
 
 	swapInfo, err := mem.SwapMemory()
