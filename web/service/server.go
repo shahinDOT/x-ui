@@ -118,9 +118,9 @@ memInfo, err := mem.VirtualMemory()
 if err != nil {
     logger.Warning("get virtual memory failed:", err)
 } else {
-    // Convert uint64 to float64, then truncate decimal parts, and then convert to uint64
-    status.Mem.Current = uint64(memInfo.Used / 1e6) // Assuming you want to convert bytes to megabytes
-    status.Mem.Total = uint64(memInfo.Total / 1e6)  // Assuming you want to convert bytes to megabytes
+    // Truncate the decimal part without rounding
+    status.Mem.Current = uint64(memInfo.Used)
+    status.Mem.Total = uint64(memInfo.Total)
 }
 
 	swapInfo, err := mem.SwapMemory()
