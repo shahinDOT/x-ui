@@ -121,7 +121,7 @@ if err != nil {
     // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Current
     status.Mem.Current = int64(math.Trunc(float64(memInfo.Used)))
 
-    // Similar conversion and truncation for status.Mem.Total
+    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Total
     status.Mem.Total = int64(math.Trunc(float64(memInfo.Total)))
 }
 
