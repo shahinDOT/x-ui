@@ -118,11 +118,9 @@ memInfo, err := mem.VirtualMemory()
 if err != nil {
     logger.Warning("get virtual memory failed:", err)
 } else {
-    // Convert uint64 to float64, truncate decimal parts, and then convert to uint64
-    status.Mem.Current = uint64(math.Trunc(float64(memInfo.Used)))
-
-    // Similar conversion for status.Mem.Total
-    status.Mem.Total = uint64(math.Trunc(float64(memInfo.Total)))
+    // Convert uint64 to float64, then truncate decimal parts, and then convert to uint64
+    status.Mem.Current = uint64(memInfo.Used / 1e6) // Assuming you want to convert bytes to megabytes
+    status.Mem.Total = uint64(memInfo.Total / 1e6)  // Assuming you want to convert bytes to megabytes
 }
 
 	swapInfo, err := mem.SwapMemory()
@@ -134,12 +132,13 @@ if err != nil {
 	}
 
 	distInfo, err := disk.Usage("/")
-	if err != nil {
-		logger.Warning("get dist usage failed:", err)
-	} else {
-		status.Disk.Current = distInfo.Used
-		status.Disk.Total = distInfo.Total
-	}
+if err != nil {
+    logger.Warning("get disk usage failed:", err)
+} else {
+    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Disk.Current and status.Disk.Total
+    status.Disk.Current = uint64(math.Trunc(float64(distInfo.Used)))
+    status.Disk.Total = uint64(math.Trunc(float64(distInfo.Total)))
+}
 
 	avgState, err := load.Avg()
 	if err != nil {
