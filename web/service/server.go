@@ -15,6 +15,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+ "math"
 
 	"x-ui/config"
 	"x-ui/database"
@@ -117,7 +118,6 @@ func (s *ServerService) GetStatus(lastStatus *Status) *Status {
 if err != nil {
     logger.Warning("get virtual memory failed:", err)
 } else {
-    // Truncate decimal parts before assigning to status.Mem.Current and status.Mem.Total
     status.Mem.Current = int64(math.Trunc(memInfo.Used))
     status.Mem.Total = int64(math.Trunc(memInfo.Total))
 }
