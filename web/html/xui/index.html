@@ -44,14 +44,16 @@
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.cpu.color"
                                                     :percent="status.cpu.percent"></a-progress>
-                                            <div><strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]</div>
+                                            <div>
+                                                <strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]
+                                            </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                            <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
+                                          <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(Math.trunc(status.mem.current)) ]] / [[ sizeFormat(Math.trunc(status.mem.total)) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
