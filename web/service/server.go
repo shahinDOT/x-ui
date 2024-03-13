@@ -119,8 +119,8 @@ if err != nil {
     logger.Warning("get virtual memory failed:", err)
 } else {
     // Truncate the decimal part without rounding
-    status.Mem.Current = uint64(math.Trunc(memInfo.Used))
-    status.Mem.Total = uint64(math.Trunc(memInfo.Total))
+    status.Mem.Current = uint64(math.Trunc(float64(memInfo.Used)))
+    status.Mem.Total = uint64(math.Trunc(float64(memInfo.Total)))
 }
 
 	swapInfo, err := mem.SwapMemory()
