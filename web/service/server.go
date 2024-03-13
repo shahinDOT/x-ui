@@ -121,8 +121,8 @@ if err != nil {
     // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Current
     status.Mem.Current = int64(math.Trunc(float64(memInfo.Used)))
 
-    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Mem.Total
-    status.Mem.Total = int64(math.Trunc(float64(memInfo.Total)))
+    // Convert uint64 to float64, then truncate decimal parts before converting to uint64 and assigning to status.Mem.Total
+    status.Mem.Total = uint64(math.Trunc(float64(memInfo.Total)))
 }
 
 	swapInfo, err := mem.SwapMemory()
