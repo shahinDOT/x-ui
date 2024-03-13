@@ -53,7 +53,7 @@
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                          <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(Math.trunc(status.mem.current)) ]] / [[ sizeFormat(Math.trunc(status.mem.total)) ]]
+                                          <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
