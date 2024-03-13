@@ -51,7 +51,7 @@
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                            <strong>{{ i18n "pages.index.memory"}}:</strong> [[ parseInt(status.mem.current.toFixed(0)) ]] / [[ parseInt(status.mem.total.toFixed(0)) ]]
+                                            <strong>{{ i18n "pages.index.memory"}}:</strong> [[ Math.round(parseInt(status.mem.current)) ]] / [[ Math.round(parseInt(status.mem.total)) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
