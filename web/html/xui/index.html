@@ -356,13 +356,18 @@
         this.current = Math.trunc(current);
         this.total = Math.trunc(total);
         }
+        
+        function truncateToFixed(number, decimalPlaces) {
+    return parseFloat(number.toFixed(decimalPlaces));
+}
 
-        get percent() {
-            if (this.total === 0) {
-                return 0;
-            }
-            return toFixed(this.current / this.total * 100, 2);
+        Object.defineProperty(Status.prototype, 'percent', {
+    get: function() {
+        if (this.total === 0) {
+            return 0;
         }
+        return truncateToFixed(this.current / this.total * 100, 2);
+    }
 
         get color() {
             const percent = this.percent;
@@ -400,7 +405,7 @@
             this.cpu = new CurTotal(data.cpu, 100);
             this.cpuCount = data.cpuCount;
             this.disk = new CurTotal(data.disk.current, data.disk.total);
-            this.loads = data.loads.map(load => toFixed(load, 2));
+            const loads = data.loads.map(load => truncateToFixed(load, 2));
             this.mem = new CurTotal(data.mem.current, data.mem.total);
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
