@@ -353,8 +353,8 @@
     class CurTotal {
 
         constructor(current, total) {
-            this.current = current;
-            this.total = total;
+        this.current = Math.trunc(current);
+        this.total = Math.trunc(total);
         }
 
         get percent() {
