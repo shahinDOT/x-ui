@@ -44,16 +44,14 @@
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.cpu.color"
                                                     :percent="status.cpu.percent"></a-progress>
-                                            <div>
-                                                <strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]
-                                            </div>
+                                            <div><strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]</div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.mem.color"
                                                     :percent="status.mem.percent"></a-progress>
                                         <div>
-                                          <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
+                                            <strong>{{ i18n "pages.index.memory"}}:</strong> [[ sizeFormat(status.mem.current) ]] / [[ sizeFormat(status.mem.total) ]]
                                         </div>
                                     </a-col>
                                 </a-row>
@@ -65,7 +63,7 @@
                                                     :stroke-color="status.swap.color"
                                                     :percent="status.swap.percent"></a-progress>
                                         <div>
-                                            <strong>SWAP:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
+                                            <strong>Swap:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
                                         </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
@@ -350,7 +348,9 @@
     }
     Object.freeze(State);
 
-    constructor(current, total) {
+    class CurTotal {
+
+        constructor(current, total) {
             this.current = current;
             this.total = total;
         }
@@ -398,7 +398,7 @@
             this.cpu = new CurTotal(data.cpu, 100);
             this.cpuCount = data.cpuCount;
             this.disk = new CurTotal(data.disk.current, data.disk.total);
-            const loads = data.loads.map(load => truncateToFixed(load, 2));
+            this.loads = data.loads.map(load => toFixed(load, 2));
             this.mem = new CurTotal(data.mem.current, data.mem.total);
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
