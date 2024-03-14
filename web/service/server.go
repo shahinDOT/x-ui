@@ -115,13 +115,12 @@ func (s *ServerService) GetStatus(lastStatus *Status) *Status {
 	}
 
 memInfo, err := mem.VirtualMemory()
-if err != nil {
-    logger.Warning("get virtual memory failed:", err)
-} else {
-    // Truncate the decimal part without rounding
-    status.Mem.Current = uint64(math.Trunc(float64(memInfo.Used)))
-    status.Mem.Total = uint64(math.Trunc(float64(memInfo.Total)))
-}
+	if err != nil {
+		logger.Warning("get virtual memory failed:", err)
+	} else {
+		status.Mem.Current = memInfo.Used
+		status.Mem.Total = memInfo.Total
+	}
 
 	swapInfo, err := mem.SwapMemory()
 	if err != nil {
@@ -132,13 +131,12 @@ if err != nil {
 	}
 
 	distInfo, err := disk.Usage("/")
-if err != nil {
-    logger.Warning("get disk usage failed:", err)
-} else {
-    // Convert uint64 to float64, then truncate decimal parts before assigning to status.Disk.Current and status.Disk.Total
-    status.Disk.Current = uint64(math.Trunc(float64(distInfo.Used)))
-    status.Disk.Total = uint64(math.Trunc(float64(distInfo.Total)))
-}
+	if err != nil {
+		logger.Warning("get dist usage failed:", err)
+	} else {
+		status.Disk.Current = distInfo.Used
+		status.Disk.Total = distInfo.Total
+	}
 
 	avgState, err := load.Avg()
 	if err != nil {
