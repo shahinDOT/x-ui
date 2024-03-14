@@ -350,24 +350,17 @@
     }
     Object.freeze(State);
 
-    class CurTotal {
-
-        constructor(current, total) {
-        this.current = Math.trunc(current);
-        this.total = Math.trunc(total);
+    constructor(current, total) {
+            this.current = current;
+            this.total = total;
         }
-        
-        function truncateToFixed(number, decimalPlaces) {
-    return parseFloat(number.toFixed(decimalPlaces));
-}
 
-        Object.defineProperty(Status.prototype, 'percent', {
-    get: function() {
-        if (this.total === 0) {
-            return 0;
+        get percent() {
+            if (this.total === 0) {
+                return 0;
+            }
+            return toFixed(this.current / this.total * 100, 2);
         }
-        return truncateToFixed(this.current / this.total * 100, 2);
-    }
 
         get color() {
             const percent = this.percent;
