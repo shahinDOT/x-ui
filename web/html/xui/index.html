@@ -44,7 +44,9 @@
                                         <a-progress type="dashboard" status="normal"
                                                     :stroke-color="status.cpu.color"
                                                     :percent="status.cpu.percent"></a-progress>
-                                            <div><strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]</div>
+                                            <div>
+                                                <strong>CPU:</strong>  [[ cpuCoreFormat(status.cpuCount) ]]
+                                            </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
                                         <a-progress type="dashboard" status="normal"
@@ -63,7 +65,7 @@
                                                     :stroke-color="status.swap.color"
                                                     :percent="status.swap.percent"></a-progress>
                                         <div>
-                                            <strong>Swap:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
+                                            <strong>SWAP:</strong> [[ sizeFormat(status.swap.current) ]] / [[ sizeFormat(status.swap.total) ]]
                                         </div>
                                     </a-col>
                                     <a-col :span="12" style="text-align: center">
