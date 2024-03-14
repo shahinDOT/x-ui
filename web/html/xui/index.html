@@ -404,7 +404,7 @@
             this.mem = new CurTotal(data.mem.current, data.mem.total);
             this.netIO = data.netIO;
             this.netTraffic = data.netTraffic;
-            this.swap = new CurTotal(data.swap.current, data.swap.total);
+            this.swap = new CurTotal(data.swap.current.toFixed(0), data.swap.total.toFixed(0));
             this.tcpCount = data.tcpCount;
             this.udpCount = data.udpCount;
             this.uptime = data.uptime;
