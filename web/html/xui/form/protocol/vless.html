@@ -22,20 +22,23 @@
 </a-collapse>
 <template v-if="inbound.isTcp && !inbound.stream.isReality">
     <a-form layout="inline">
-        <a-form-item label="Fallbacks">
-    <a-row>
-        <a-switch v-model="showAddButton"></a-switch>
-        <a-button v-if="showAddButton && inbound.settings.fallbacks.length > 0" type="primary" size="small" @click="inbound.settings.addFallback()">+</a-button>
-    </a-row>
-</a-form-item>
+        <a-form-item label="Show Fallbacks">
+            <a-switch v-model="showAddButton"></a-switch>
+        </a-form-item>
+        <a-form-item v-if="showAddButton" label="Fallbacks">
+            <a-row>
+                <a-button type="primary" size="small" @click="inbound.settings.addFallback()">
+                    +
+                </a-button>
+            </a-row>
+        </a-form-item>
     </a-form>
 
     <!-- vless fallbacks -->
-    <a-form v-for="(fallback, index) in inbound.settings.fallbacks" :colon="false" :label-col="{ md: {span:6} }" :wrapper-col="{ md: {span:14} }">
+    <a-form v-if="showAddButton" v-for="(fallback, index) in inbound.settings.fallbacks" :key="index" :colon="false" :label-col="{ md: {span:6} }" :wrapper-col="{ md: {span:14} }">
         <a-divider style="margin:0;">
             Fallback [[ index + 1 ]]
-            <a-icon type="delete" @click="() => inbound.settings.delFallback(index)"
-                    style="color: rgb(255, 77, 79);cursor: pointer;"/>
+            <a-icon type="delete" @click="() => inbound.settings.delFallback(index)" style="color: rgb(255, 77, 79);cursor: pointer;"/>
         </a-divider>
         <a-form-item label='SNI'>
             <a-input v-model="fallback.name"></a-input>
