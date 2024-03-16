@@ -62,9 +62,11 @@
     <a-form-item label='{{ i18n "pages.inbounds.stream.tcp.statusDescription" }}'>
         <a-input v-model.trim="inbound.stream.tcp.response.reason"></a-input>
     </a-form-item>
-    <a-form-item label='{{ i18n "pages.inbounds.stream.tcp.responseHeader" }}'>
+    <a-form-item>
+        <template slot="label">{{ i18n "pages.inbounds.stream.tcp.responseHeader" }}
         <a-button size="small"
             @click="inbound.stream.tcp.response.addHeader('Content-Type', 'application/octet-stream')">+</a-button>
+    </template>
     </a-form-item>
     <a-form-item :wrapper-col="{span:24}">
         <a-input-group compact v-for="(header, index) in inbound.stream.tcp.response.headers">
