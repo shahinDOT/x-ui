@@ -1659,11 +1659,13 @@ Inbound.VLESSSettings = class extends Inbound.Settings {
     constructor(protocol,
                 vlesses=[new Inbound.VLESSSettings.VLESS()],
                 decryption='none',
-                fallbacks=[],) {
+                fallbacks=[],
+                showAddButton=true) {
         super(protocol);
         this.vlesses = vlesses;
         this.decryption = decryption;
         this.fallbacks = fallbacks;
+        this.showAddButton = showAddButton;
     }
 
     addFallback() {
@@ -1673,6 +1675,7 @@ Inbound.VLESSSettings = class extends Inbound.Settings {
     delFallback(index) {
         this.fallbacks.splice(index, 1);
     }
+}
 
     // decryption should be set to static value
     static fromJson(json={}) {
